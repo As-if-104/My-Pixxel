@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import ImageKit from "imagekit";
 import { auth } from "@clerk/nextjs/server";
 
+// Prevent this route from being called during build
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function POST(request) {
   try {
     // Verify authentication
